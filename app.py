@@ -10,8 +10,9 @@ app = Flask(__name__)
 app.config["GIPHY_KEY"] = os.getenv("GIPHY_KEY")
 key = app.config["GIPHY_KEY"]
 
-# is_prod = os.environ.get('IS_HEROKU', None)
-# if is_prod:
+is_prod = os.environ.get('IS_HEROKU', None)
+if is_prod:
+    key = os.environ.get("GIPHY_KEY")
 #     #print("HEROKU!!!")
 #     heroku config:set key="..."
 # else:
